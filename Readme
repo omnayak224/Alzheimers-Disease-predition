@@ -1,0 +1,30 @@
+# Alz_Analysis: Alzheimer's Disease Prediction 🧠
+
+An analytical machine learning project designed to classify Alzheimer's Disease likelihood using clinical and lifestyle biomarkers.
+
+## 01 — Overview
+Early detection of Alzheimer's is critical for effective patient care. This project utilizes clinical data—including BMI, cognitive scores (MMSE), and family history—to train a robust classification model capable of identifying hidden patterns in patient records.
+
+## 02 — Key Features
+* **High Performance**: Achieved a model accuracy of **92.79%**.
+* **Feature Rich**: Analyzes 32 distinct features ranging from cardiovascular health to sleep quality.
+* **Cross-Validated**: Validated using 5-Fold Cross-Validation for reliable performance metrics.
+
+## 03 — Tech Stack
+* **Language**: Python 3.13
+* **Environment**: Jupyter Notebook
+* **Data Processing**: Pandas, NumPy
+* **Machine Learning**: Scikit-learn (RandomForestClassifier, StratifiedKFold)
+* **Visualization**: Seaborn, Matplotlib
+
+## 04 — Pipeline
+1. **Data Cleaning**: Handled duplicates and standardized column naming conventions.
+2. **Feature Engineering**: Removed non-predictive identifiers like `PatientID` and `DoctorInCharge`.
+3. **Imputation**: Filled missing values using median imputation to maintain dataset integrity.
+4. **Model**: Implemented a Random Forest model with 200 estimators.
+
+## 05 — Repository Structure
+- `Model.ipynb`: The core data science pipeline and model training.
+- `alzheimers_disease_data.csv`: Clinical dataset used for the project.
+- `alzheimers_portfolio.html`: A visual summary of the project results.
+- `style.css`: Custom styling for the results presentation.
