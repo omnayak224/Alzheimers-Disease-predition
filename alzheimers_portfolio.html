@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alz_Analysis — Alzheimer's Analysis Project</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Alz<span>Analysis</div>
+  <div class="nav-links">
+    <a href="#overview">Overview</a>
+    <a href="#results">Results</a>
+    <a href="#pipeline">Pipeline</a>
+    <a href="#code">Code</a>
+    <a href="#tech">Tech</a>
+  </div>
+</nav>
+ 
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-badge">Machine Learning</div>
+  <h1>
+    <span class="line1">Alzheimer's Disease</span>
+    <span class="line2">Analysis using ML</span>
+  </h1>
+  <p class="hero-desc">
+    A Random Forest classification model trained on 2,149 patient records using clinical, lifestyle, and cognitive data to predict Alzheimer's diagnosis.
+  </p>
+  <div class="hero-stats">
+    <div class="hstat">
+      <span class="hstat-num">92.79%</span>
+      <span class="hstat-lbl">Accuracy</span>
+    </div>
+    <div class="hstat">
+      <span class="hstat-num">2,149</span>
+      <span class="hstat-lbl">Records</span>
+    </div>
+    <div class="hstat">
+      <span class="hstat-num">32</span>
+      <span class="hstat-lbl">Features</span>
+    </div>
+    <div class="hstat">
+      <span class="hstat-num">5-Fold</span>
+      <span class="hstat-lbl">Cross Val</span>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <path d="M7 2v10M3 8l4 4 4-4" stroke="#8b949e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    scroll
+  </div>
+</section>
+ 
+<!-- OVERVIEW -->
+<hr class="divider">
+<div class="section-wrap" id="overview">
+  <div class="section-eyebrow">01 — Overview</div>
+  <div class="section-h">What this project does</div>
+  <div class="section-sub">Uses patient demographics, lifestyle habits, medical history, and cognitive assessments to classify whether a patient is likely to have Alzheimer's disease.</div>
+  <div class="cards-grid">
+    <div class="card">
+      <div class="card-icon">🧠</div>
+      <h3>Problem Statement</h3>
+      <p>Early Alzheimer's detection is critical but difficult. ML can identify hidden patterns in clinical data that are hard to spot manually.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📊</div>
+      <h3>Dataset</h3>
+      <p>2,149 patient records with 35 attributes — BMI, MMSE, cholesterol, sleep quality, family history, and more. Source: Kaggle.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🌲</div>
+      <h3>Model</h3>
+      <p>Random Forest Classifier with 200 decision trees, trained on an 80/20 stratified train-test split with median imputation.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">✅</div>
+      <h3>Validation</h3>
+      <p>Stratified 5-Fold Cross Validation ensures the model is robust, unbiased, and generalises well to unseen patient data.</p>
+    </div>
+  </div>
+</div>
+ 
+<!-- RESULTS -->
+<hr class="divider">
+<div class="section-wrap" id="results">
+  <div class="section-eyebrow">02 — Results</div>
+  <div class="section-h">Model performance</div>
+  <div class="section-sub">Evaluated on 20% held-out test data and verified with stratified cross-validation across 5 folds.</div>
+ 
+  <div class="metrics-row">
+    <div class="metric">
+      <span class="metric-val">92.79%</span>
+      <span class="metric-lbl">Test Accuracy</span>
+    </div>
+    <div class="metric">
+      <span class="metric-val">93.86%</span>
+      <span class="metric-lbl">CV Mean Accuracy</span>
+    </div>
+    <div class="metric">
+      <span class="metric-val">±1.05%</span>
+      <span class="metric-lbl">Std Deviation</span>
+    </div>
+    <div class="metric">
+      <span class="metric-val">0.93</span>
+      <span class="metric-lbl">F1 Score</span>
+    </div>
+  </div>
+ 
+  <div class="results-grid">
+    <div>
+      <div class="bar-section-title">// top 5 feature importances</div>
+      <div class="bar-chart">
+        <div class="bar-row">
+          <div class="bar-name">MMSE Score</div>
+          <div class="bar-track"><div class="bar-fill" style="width:92%"><span class="bar-pct">92%</span></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-name">Functional Assessment</div>
+          <div class="bar-track"><div class="bar-fill" style="width:78%"><span class="bar-pct">78%</span></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-name">ADL</div>
+          <div class="bar-track"><div class="bar-fill" style="width:65%"><span class="bar-pct">65%</span></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-name">Memory Complaints</div>
+          <div class="bar-track"><div class="bar-fill" style="width:54%"><span class="bar-pct">54%</span></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-name">Behavioral Problems</div>
+          <div class="bar-track"><div class="bar-fill" style="width:47%"><span class="bar-pct">47%</span></div></div>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="cm-wrap">
+      <div class="cm-title">// confusion matrix</div>
+      <div class="cm-axis-label">Predicted</div>
+      <div class="cm-outer">
+        <div class="cm-side-label">Actual</div>
+        <div style="flex:1">
+          <div class="cm-col-labels">
+            <div></div>
+            <div class="cm-col-lbl">No</div>
+            <div class="cm-col-lbl">Yes</div>
+          </div>
+          <div class="cm-grid">
+            <div class="cm-cell cm-tn">
+              <span class="cv">271</span>
+              <span class="cl">True Neg</span>
+            </div>
+            <div class="cm-cell cm-fp">
+              <span class="cv">6</span>
+              <span class="cl">False Pos</span>
+            </div>
+            <div class="cm-cell cm-fn">
+              <span class="cv">25</span>
+              <span class="cl">False Neg</span>
+            </div>
+            <div class="cm-cell cm-tp">
+              <span class="cv">128</span>
+              <span class="cl">True Pos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<!-- PIPELINE -->
+<hr class="divider">
+<div class="section-wrap" id="pipeline">
+  <div class="section-eyebrow">03 — Pipeline</div>
+  <div class="section-h">Data to prediction flow</div>
+  <div class="section-sub">Every transformation applied from raw CSV to final diagnosis classification.</div>
+  <div class="pipeline">
+    <div class="pipe-step">
+      <span class="ps-num">01</span>
+      <span class="ps-name">Load Data</span>
+      <span class="ps-detail">pandas read_csv</span>
+    </div>
+    <div class="pipe-arrow">›</div>
+    <div class="pipe-step">
+      <span class="ps-num">02</span>
+      <span class="ps-name">Drop Columns</span>
+      <span class="ps-detail">PatientID, Doctor</span>
+    </div>
+    <div class="pipe-arrow">›</div>
+    <div class="pipe-step">
+      <span class="ps-num">03</span>
+      <span class="ps-name">Fill NaN</span>
+      <span class="ps-detail">median imputation</span>
+    </div>
+    <div class="pipe-arrow">›</div>
+    <div class="pipe-step">
+      <span class="ps-num">04</span>
+      <span class="ps-name">Split X / y</span>
+      <span class="ps-detail">features vs target</span>
+    </div>
+    <div class="pipe-arrow">›</div>
+    <div class="pipe-step">
+      <span class="ps-num">05</span>
+      <span class="ps-name">Train / Test</span>
+      <span class="ps-detail">80 / 20 split</span>
+    </div>
+    <div class="pipe-arrow">›</div>
+    <div class="pipe-step">
+      <span class="ps-num">06</span>
+      <span class="ps-name">Train RF</span>
+      <span class="ps-detail">200 estimators</span>
+    </div>
+    <div class="pipe-arrow">›</div>
+    <div class="pipe-step">
+      <span class="ps-num">07</span>
+      <span class="ps-name">Evaluate</span>
+      <span class="ps-detail">accuracy + CV</span>
+    </div>
+  </div>
+</div>
+ 
+<!-- CODE -->
+<hr class="divider">
+<div class="section-wrap" id="code">
+  <div class="section-eyebrow">04 — Source Code</div>
+  <div class="section-h">Core implementation</div>
+  <div class="section-sub">Key parts of the Python implementation using scikit-learn.</div>
+  <div class="code-block">
+    <pre><span class="cm"># Step 1: Load data</span>
+<span class="var">Alz_df</span> = pd.<span class="fn">read_csv</span>(<span class="str">"alzheimers_disease_data.csv"</span>)
+ 
+<span class="cm"># Step 2: Normalize column names to uppercase</span>
+<span class="var">Alz_df</span>.columns = <span class="var">Alz_df</span>.columns.str.<span class="fn">upper</span>().str.<span class="fn">strip</span>()
+ 
+<span class="cm"># Step 3: Remove duplicates</span>
+<span class="var">Alz_df</span>.<span class="fn">drop_duplicates</span>(inplace=<span class="kw">True</span>)
+ 
+<span class="cm"># Step 4: Drop non-predictive columns</span>
+<span class="var">uw</span> = [<span class="str">"PATIENTID"</span>, <span class="str">"DOCTORINCHARGE"</span>]
+<span class="var">Alz_df</span> = <span class="var">Alz_df</span>.<span class="fn">drop</span>(columns=[col <span class="kw">for</span> col <span class="kw">in</span> <span class="var">uw</span> <span class="kw">if</span> col <span class="kw">in</span> <span class="var">Alz_df</span>.columns], errors=<span class="str">'ignore'</span>)
+ 
+<span class="cm"># Step 5: Fill missing values with median</span>
+<span class="var">Alz_df</span>.<span class="fn">fillna</span>(<span class="var">Alz_df</span>.<span class="fn">median</span>(numeric_only=<span class="kw">True</span>), inplace=<span class="kw">True</span>)
+ 
+<span class="cm"># Step 6: Feature / target split</span>
+<span class="var">X</span> = <span class="var">Alz_df</span>.<span class="fn">drop</span>(columns=[<span class="str">"DIAGNOSIS"</span>])
+<span class="var">y</span> = <span class="var">Alz_df</span>[<span class="str">"DIAGNOSIS"</span>]
+ 
+<span class="cm"># Step 7: Train-test split  (80:20)</span>
+<span class="var">X_train</span>, <span class="var">X_test</span>, <span class="var">y_train</span>, <span class="var">y_test</span> = <span class="fn">train_test_split</span>(
+    <span class="var">X</span>, <span class="var">y</span>, test_size=<span class="num">0.2</span>, random_state=<span class="num">42</span>
+)
+ 
+<span class="cm"># Step 8: Model training  (200 estimators)</span>
+<span class="var">model</span> = <span class="fn">RandomForestClassifier</span>(n_estimators=<span class="num">200</span>, random_state=<span class="num">42</span>)
+<span class="var">model</span>.<span class="fn">fit</span>(<span class="var">X_train</span>, <span class="var">y_train</span>)
+<span class="fn">print</span>(<span class="str">"Model Training Completed"</span>)
+ 
+<span class="cm"># Step 9: Predict & evaluate</span>
+<span class="var">y_pred</span> = <span class="var">model</span>.<span class="fn">predict</span>(<span class="var">X_test</span>)
+<span class="var">accuracy</span> = <span class="fn">accuracy_score</span>(<span class="var">y_test</span>, <span class="var">y_pred</span>)
+<span class="fn">print</span>(<span class="str">f"Model Accuracy:{accuracy*100:.4f}%"</span>)
+<span class="cm"># → Model Accuracy: 92.7907%</span>
+ 
+<span class="cm"># Step 10: Cross-validation</span>
+<span class="var">skf</span> = <span class="fn">StratifiedKFold</span>(n_splits=<span class="num">5</span>, shuffle=<span class="kw">True</span>, random_state=<span class="num">42</span>)
+<span class="var">cv_score</span> = <span class="fn">cross_val_score</span>(<span class="var">model</span>, <span class="var">X</span>, <span class="var">y</span>, cv=<span class="var">skf</span>, scoring=<span class="str">"accuracy"</span>)
+<span class="fn">print</span>(<span class="str">f"mean Accuracy:{cv_score.mean()*100:.4f}%"</span>)
+<span class="fn">print</span>(<span class="str">f"Standard Deviation:{cv_score.std()*100:.4f}%"</span>)
+<span class="cm"># → Mean: 93.8580%  |  Std Dev: 1.0547%</span>
+ 
+<span class="cm"># Step 11: Confusion matrix</span>
+<span class="var">cm</span> = <span class="fn">confusion_matrix</span>(<span class="var">y_test</span>, <span class="var">y_pred</span>)
+<span class="fn">sns.heatmap</span>(<span class="var">cm</span>, annot=<span class="kw">True</span>, fmt=<span class="str">"d"</span>, cmap=<span class="str">"Blues"</span>,
+            xticklabels=[<span class="str">"No Alzheimer's"</span>, <span class="str">"Alzheimer's"</span>],
+            yticklabels=[<span class="str">"No Alzheimer's"</span>, <span class="str">"Alzheimer's"</span>])</pre>
+  </div>
+</div>
+ 
+<!-- TECH -->
+<hr class="divider">
+<div class="section-wrap" id="tech">
+  <div class="section-eyebrow">05 — Tech Stack</div>
+  <div class="section-h">Libraries and tools</div>
+  <div class="section-sub">Built entirely in Python using industry-standard data science and machine learning libraries.</div>
+ 
+  <div class="tech-cat">// language & environment</div>
+  <div class="tech-row">
+    <span class="tag accent">Python 3.13</span>
+    <span class="tag accent">Jupyter Notebook</span>
+  </div>
+ 
+  <div class="tech-cat">// data processing</div>
+  <div class="tech-row">
+    <span class="tag">pandas</span>
+    <span class="tag">NumPy</span>
+  </div>
+ 
+  <div class="tech-cat">// machine learning</div>
+  <div class="tech-row">
+    <span class="tag">scikit-learn</span>
+    <span class="tag">RandomForestClassifier</span>
+    <span class="tag">StratifiedKFold</span>
+    <span class="tag">cross_val_score</span>
+    <span class="tag">train_test_split</span>
+  </div>
+ 
+  <div class="tech-cat">// visualisation</div>
+  <div class="tech-row">
+    <span class="tag">seaborn</span>
+    <span class="tag">matplotlib</span>
+  </div>
+</div>
+ 
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">AlzAnalysis</div>
+    <p>Alzheimer's Disease Analysis — Minor Project &nbsp;·&nbsp; Random Forest Classifier &nbsp;·&nbsp; scikit-learn</p>
+  </div>
+</footer>
+
+</body>
+</html>
